@@ -10,26 +10,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function addTask() {
-        const taskText = taskInput.value.trim();
-        if (taskText === '') return;
-
-        const taskItem = document.createElement('li');
-        taskItem.textContent = taskText;
-
-        const removeBtn = document.createElement('button');
-        removeBtn.textContent = 'Remover';
-        removeBtn.addEventListener('click', () => {
-            taskList.removeChild(taskItem);
-        });
-
-        taskItem.appendChild(removeBtn);
-        taskItem.addEventListener('click', () => {
-            taskItem.classList.toggle('completed');
-        });
-
-        taskList.appendChild(taskItem);
-        taskInput.value = '';
-        taskInput.focus();
+    async function addTask() {
+        try {
+            const taskText = taskInput.value.trim();
+            if (taskText === '') return;
+    
+            const { data, error } = await supabase
+                .from('tasks')
+                .insert([
+                    { nome: taskText, concluida: false },
+                ])
+                .select()
+    
+            console.log(data)    
+            console.log(error)
+    
+            const taskItem = document.createElement('li');
+            taskItem.textContent = taskText;
+    
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remover';
+            removeBtn.addEventListener('click', () => {
+                taskList.removeChild(taskItem);
+            });
+    
+            taskItem.appendChild(removeBtn);
+            taskItem.addEventListener('click', () => {
+                taskItem.classList.toggle('completed');
+            });
+    
+            taskList.appendChild(taskItem);
+            taskInput.value = '';
+            taskInput.focus();
+        } catch (err) {
+            console.log(err)
+        }
     }
 });
