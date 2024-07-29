@@ -3,6 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     height: 100vh;
     margin: 0;
     background-color: #fbfbfb;
@@ -10,8 +11,7 @@ body {
 
 .header {
     width: 100%;
-    background-color: #32b4c8;
-    padding: 10px;
+    background-color: #011323;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
