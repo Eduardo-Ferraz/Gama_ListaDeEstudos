@@ -3,9 +3,9 @@ const SUPABASE_URL = 'https://oswsnqvlvarjvjencjaq.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zd3NucXZsdmFyanZqZW5jamFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjIxODIxMTMsImV4cCI6MjAzNzc1ODExM30.-eL24UL848MsZ8qNbh4yEzvgfIPhwJ0ZB0IjNGFqBos';
 
 // Inicialize o cliente Supabase
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 document.addEventListener('DOMContentLoaded', () => {
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
     const taskInput = document.getElementById('task-input');
     const addTaskBtn = document.getElementById('add-task-btn');
     const taskList = document.getElementById('task-list');
