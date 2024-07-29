@@ -15,10 +15,10 @@ Remover Tarefas: É possível excluir tarefas.
 Mostrar/Ocultar Tarefas Concluídas: Marque ou desmarque a checkbox "Mostrar tarefas concluídas" para alternar a visibilidade das tarefas concluídas.
 
 ## Tecnologias Utilizadas
-- HTML
-- CSS
-- JavaScript
-- Vercel para hospedagem
+- HTML (index.html)
+- CSS (styles.css)
+- JavaScript (script.js)
+- Vercel para hospedagem (middleware.js e package.json)
 
 ## Exemplos de Uso!
 Para Desktop
