@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadCheckboxState() {
-        const showCompleted = JSON.parse(localStorage.getItem('showCompleted')) || false;
+        const showCompleted = JSON.parse(localStorage.getItem('showCompleted'));
         showCompletedCheckbox.checked = showCompleted;
         filterTasks();
     }
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (direction === -1) {
             taskList.insertBefore(taskItem, taskList.children[newPos]);
-        } else  if (direction === 1) {
+        } else if (direction === 1) {
             taskList.insertBefore(taskList.children[newPos], taskItem);
         } else {
             console.error('Invalid direction to move task');

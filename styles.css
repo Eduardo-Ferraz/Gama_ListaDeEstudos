@@ -14,7 +14,7 @@ body {
     text-align: center;
     padding: 10px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5vh; /* Espaçamento entre o header e a lista de tarefas */
+    margin-bottom: 5vh;
 }
 
 .logo {
@@ -71,9 +71,25 @@ body {
 }
 
 .checkbox-container {
-    display: block;
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
+    font-family: inherit; 
 }
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #32b4c8;
+}
+
+.checkbox-container label {
+    font-size: 14px;
+    color: #333;
+}
+
 
 .task-list {
     list-style: none;
