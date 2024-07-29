@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (direction === -1) {
             taskList.insertBefore(taskItem, taskList.children[newPos]);
         } else  if (direction === 1) {
-            taskList.insertAfter(taskItem, taskList.children[newPos]);
+            taskList.insertBefore(taskList.children[newPos], taskItem);
         } else {
             console.error('Invalid direction to move task');
             return;
