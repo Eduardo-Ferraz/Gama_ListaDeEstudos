@@ -86,8 +86,23 @@ body {
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .remove-button:hover {
     background: #c82333;
+}
+
+.move-button {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.move-button:hover {
+    background: #0056b3;
 }

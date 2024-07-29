@@ -74,6 +74,22 @@ document.addEventListener('DOMContentLoaded', () => {
             taskItem.classList.add('completed');
         }
 
+        const moveUpBtn = document.createElement('button');
+        moveUpBtn.classList.add('move-button');
+        moveUpBtn.textContent = '↑';
+        moveUpBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            moveTask(taskItem, -1);
+        });
+
+        const moveDownBtn = document.createElement('button');
+        moveDownBtn.classList.add('move-button');
+        moveDownBtn.textContent = '↓';
+        moveDownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            moveTask(taskItem, 1);
+        });
+
         const removeBtn = document.createElement('button');
         removeBtn.classList.add('remove-button');
         removeBtn.textContent = 'Remover';
@@ -84,6 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         taskItem.appendChild(taskName);
+        taskItem.appendChild(moveUpBtn);
+        taskItem.appendChild(moveDownBtn);
         taskItem.appendChild(removeBtn);
         taskItem.addEventListener('click', () => {
             taskItem.classList.toggle('completed');
@@ -93,6 +111,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         taskList.appendChild(taskItem);
         filterTasks();
+    }
+
+    function moveTask(taskItem, direction) {
+        const currentPos = [...taskList.children].indexOf(taskItem);
+        const newPos = currentPos + direction;
+
+        if (newPos < 0 || newPos >= taskList.children.length) {
+            return;
+        }
+
+        taskList.insertBefore(taskItem, taskList.children[newPos]);
+        saveTasks();
     }
 
     function filterTasks() {
