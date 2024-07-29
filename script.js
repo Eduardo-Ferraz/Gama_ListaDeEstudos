@@ -99,9 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
             saveTasks();
         });
 
-        taskItem.appendChild(taskName);
         taskItem.appendChild(moveUpBtn);
         taskItem.appendChild(moveDownBtn);
+        taskItem.appendChild(taskName);
         taskItem.appendChild(removeBtn);
         taskItem.addEventListener('click', () => {
             taskItem.classList.toggle('completed');
@@ -123,8 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (direction === -1) {
             taskList.insertBefore(taskItem, taskList.children[newPos]);
+        } else  if (direction === 1) {
+            taskList.insertAfter(taskItem, taskList.children[newPos]);
         } else {
-            taskList.insertBefore(taskList.children[newPos], taskItem);
+            console.error('Invalid direction to move task');
+            return;
         }
 
         saveTasks();

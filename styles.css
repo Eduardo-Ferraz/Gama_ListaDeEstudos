@@ -1,11 +1,23 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #fbfbfb;
+}
+
+.header {
+    width: 100%;
+    background-color: #32b4c8;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    max-width: 150px; /* Ajuste o tamanho da logo conforme necessário */
 }
 
 .todo-container {
@@ -38,7 +50,7 @@ body {
     padding: 10px 20px;
     margin-left: 10px;
     border: none;
-    background: #28a745;
+    background: #32b4c8;
     color: white;
     border-radius: 4px;
     cursor: pointer;
@@ -59,7 +71,7 @@ body {
 }
 
 .task-item {
-    background: #f9f9f9;
+    background: #fbfbfb;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -94,7 +106,7 @@ body {
 }
 
 .move-button {
-    background: #007bff;
+    background: #32b4c8;
     border: none;
     color: white;
     padding: 5px 10px;
@@ -104,5 +116,5 @@ body {
 }
 
 .move-button:hover {
-    background: #0056b3;
+    background: #29a0b1;
 }
