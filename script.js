@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskList = document.getElementById('task-list');
     const showCompletedCheckbox = document.getElementById('show-completed');
 
-    // Carregar tarefas do localStorage
+    // Carregar tarefas e estado do checkbox do localStorage
     loadTasks();
+    loadCheckboxState();
 
     addTaskBtn.addEventListener('click', addTask);
     taskInput.addEventListener('keypress', (e) => {
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     showCompletedCheckbox.addEventListener('change', () => {
+        saveCheckboxState();
         filterTasks();
     });
 
@@ -35,6 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    function loadCheckboxState() {
+        const showCompleted = JSON.parse(localStorage.getItem('showCompleted')) || false;
+        showCompletedCheckbox.checked = showCompleted;
+        filterTasks();
+    }
+
+    function saveCheckboxState() {
+        localStorage.setItem('showCompleted', JSON.stringify(showCompletedCheckbox.checked));
     }
 
     function addTask() {
