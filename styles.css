@@ -3,6 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
     background-color: #fbfbfb;
@@ -18,27 +19,28 @@ body {
 }
 
 .logo {
-    max-width: 150px; /* Ajuste o tamanho da logo conforme necessário */
+    max-width: 150px;
 }
 
 .todo-container {
     background: #fff;
-    padding: 20px;
+    padding: 5%;
+    margin: 5%;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 80%;
     max-width: 400px;
 }
 
 .todo-header {
     text-align: center;
     color: #333;
-    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    margin-bottom: 20px;
 }
 
 .input-container {
     display: flex;
-    margin-bottom: 20px; /* Espaçamento entre o campo de entrada e a lista de tarefas */
+    margin-bottom: 20px;
 }
 
 .input-text {
@@ -46,7 +48,7 @@ body {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    margin-right: 10px; /* Espaçamento entre o campo de entrada e o botão */
+    margin-right: 10px;
 }
 
 .add-button {
@@ -56,7 +58,7 @@ body {
     color: white;
     border-radius: 4px;
     cursor: pointer;
-    transition: background 0.3s ease; /* Transição suave para hover */
+    transition: background 0.3s ease;
 }
 
 .add-button:hover {
@@ -65,7 +67,7 @@ body {
 
 .checkbox-container {
     display: block;
-    margin-bottom: 20px; /* Espaçamento entre a checkbox e a lista de tarefas */
+    margin-bottom: 20px;
 }
 
 .task-list {
@@ -79,20 +81,24 @@ body {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    margin-bottom: 10px; /* Espaçamento entre as tarefas */
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.task-item.completed {
+.task-item.completed .task-name {
     text-decoration: line-through;
     color: #888;
+}
+
+.task-item.completed {
     background: #e0e0e0;
 }
 
 .task-name {
     flex: 1;
+    margin-left: 10px;
 }
 
 .remove-button {
@@ -102,8 +108,8 @@ body {
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 10px; /* Espaçamento entre o botão de remover e a tarefa */
-    transition: background 0.3s ease; /* Transição suave para hover */
+    margin-left: 10px;
+    transition: background 0.3s ease;
 }
 
 .remove-button:hover {
@@ -117,8 +123,8 @@ body {
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 10px; /* Espaçamento entre o botão de mover e a tarefa */
-    transition: background 0.3s ease; /* Transição suave para hover */
+    margin-left: 10px;
+    transition: background 0.3s ease;
 }
 
 .move-button:hover {
