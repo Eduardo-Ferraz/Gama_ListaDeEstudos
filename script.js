@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
     const addTaskBtn = document.getElementById('add-task-btn');
     const taskList = document.getElementById('task-list');
+    const showCompletedCheckbox = document.getElementById('show-completed');
 
     // Carregar tarefas do localStorage
     loadTasks();
@@ -11,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') {
             addTask();
         }
+    });
+
+    showCompletedCheckbox.addEventListener('change', () => {
+        filterTasks();
     });
 
     function loadTasks() {
@@ -64,8 +69,22 @@ document.addEventListener('DOMContentLoaded', () => {
         taskItem.addEventListener('click', () => {
             taskItem.classList.toggle('completed');
             saveTasks();
+            filterTasks();
         });
 
         taskList.appendChild(taskItem);
+        filterTasks();
+    }
+
+    function filterTasks() {
+        const showCompleted = showCompletedCheckbox.checked;
+        taskList.querySelectorAll('li').forEach(taskItem => {
+            const isCompleted = taskItem.classList.contains('completed');
+            if (isCompleted && !showCompleted) {
+                taskItem.style.display = 'none';
+            } else {
+                taskItem.style.display = 'flex';
+            }
+        });
     }
 });
