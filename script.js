@@ -121,7 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        taskList.insertBefore(taskItem, taskList.children[newPos]);
+        if (direction === -1) {
+            taskList.insertBefore(taskItem, taskList.children[newPos]);
+        } else {
+            taskList.insertBefore(taskList.children[newPos], taskItem);
+        }
+
         saveTasks();
     }
 
