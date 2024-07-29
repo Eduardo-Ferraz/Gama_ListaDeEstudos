@@ -34,7 +34,7 @@ body {
     border-radius: 4px;
 }
 
-.button {
+.add-button {
     padding: 10px 20px;
     margin-left: 10px;
     border: none;
@@ -44,7 +44,7 @@ body {
     cursor: pointer;
 }
 
-.button:hover {
+.add-button:hover {
     background: #218838;
 }
 
@@ -73,6 +73,10 @@ body {
     text-decoration: line-through;
     color: #888;
     background: #e0e0e0;
+}
+
+.task-name {
+    flex: 1;
 }
 
 .remove-button {
