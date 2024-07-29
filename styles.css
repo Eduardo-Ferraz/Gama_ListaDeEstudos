@@ -46,7 +46,7 @@ body {
 .todo-container {
     background: #fff;
     padding: 5%;
-    margin: 0% 5%;
+    margin: 0% 5% 1% 5%;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80%;
@@ -174,4 +174,24 @@ body {
 .move-button img {
     width: 10px;
     height: 10px;
+}
+
+.footer {
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    color: #888;
+    background-color: #f5f5f5;
+}
+
+.footer a {
+    color: #888;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+}
+
+.footer a:hover {
+    color: #32b4c8;
+    text-decoration: underline;
 }
