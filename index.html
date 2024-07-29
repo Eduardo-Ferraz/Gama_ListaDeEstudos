@@ -1,34 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Estudos</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="./img/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon-32x32.png" type="image/png">
 </head>
 <body>
-    <div class="header">
-        <a href="https://gamaensino.com" target="_blank" rel=”noopener noreferrer”>
-            <img src="./img/Logotipo-Gama-Ensino-sem-fundo-2.png" alt="Logo da Gama Ensino" class="logo">
+    <header class="header">
+        <a href="https://gamaensino.com" target="_blank">
+            <img src="logo.png" alt="Logo" class="logo">
         </a>
-    </div>
+    </header>
+    <section class="welcome">
+        <h1>Bem-vindo à sua Lista de Estudos!</h1>
+        <p>Estamos felizes em ter você aqui. Este aplicativo ajuda você a manter suas tarefas de estudo organizadas e gerenciáveis.</p>
+        <p>Você pode recarregar a página e suas tarefas continuarão por aqui! Para marcá-las como concluídas, basta clicar no nome delas.</p>
+        <p>Esperamos que este aplicativo facilite seus estudos!</p>
+    </section>
     <div class="todo-container">
-        <h1 class="todo-header">Lista de Estudos</h1>
+        <div class="todo-header">
+            <h2>Lista de Tarefas</h2>
+        </div>
         <div class="input-container">
-            <input type="text" id="task-input" class="input-text" placeholder="Digite uma nova tarefa...">
+            <input id="task-input" class="input-text" type="text" placeholder="Digite uma nova tarefa">
             <button id="add-task-btn" class="add-button">Adicionar</button>
         </div>
-        <label class="checkbox-container">
-            <input type="checkbox" id="show-completed">
-            Mostrar tarefas concluídas
-        </label>
-        <ul id="task-list" class="task-list">
-            <!-- As tarefas serão adicionadas aqui -->
-        </ul>
+        <div class="checkbox-container">
+            <input id="show-completed" type="checkbox">
+            <label for="show-completed">Mostrar tarefas concluídas</label>
+        </div>
+        <ul id="task-list" class="task-list"></ul>
     </div>
     <script src="script.js"></script>
 </body>
