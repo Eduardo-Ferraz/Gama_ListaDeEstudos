@@ -19,3 +19,11 @@ Mostrar/Ocultar Tarefas Concluídas: Marque ou desmarque a checkbox "Mostrar tar
 - CSS
 - JavaScript
 - Vercel para hospedagem
+
+## Exemplos de Uso!
+Para Desktop
+
+![screencapture-gamalistadeestudos-vercel-app-2024-07-29-07_50_33](https://github.com/user-attachments/assets/234e38d3-0378-45cd-9bc2-3e422fa5bfc1)
+Para Celular
+
+![1000177521 (Pequeno)](https://github.com/user-attachments/assets/b89781ad-51c0-492f-a1aa-5e61ad9f927d)
