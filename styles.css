@@ -3,7 +3,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     height: 100vh;
     margin: 0;
     background-color: #fbfbfb;
@@ -15,7 +14,7 @@ body {
     text-align: center;
     padding: 10px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Espaçamento entre o header e a lista de tarefas */
+    margin-bottom: 5vh; /* Espaçamento entre o header e a lista de tarefas */
 }
 
 .logo {
