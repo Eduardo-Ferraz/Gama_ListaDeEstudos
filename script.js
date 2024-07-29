@@ -1,16 +1,9 @@
-// Configure a URL e a chave pública do seu projeto Supabase
-const SUPABASE_URL = 'https://oswsnqvlvarjvjencjaq.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9zd3NucXZsdmFyanZqZW5jamFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjIxODIxMTMsImV4cCI6MjAzNzc1ODExM30.-eL24UL848MsZ8qNbh4yEzvgfIPhwJ0ZB0IjNGFqBos';
-
-// Inicialize o cliente Supabase
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
 document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
     const addTaskBtn = document.getElementById('add-task-btn');
     const taskList = document.getElementById('task-list');
 
-    // Carregar tarefas do Supabase
+    // Carregar tarefas do localStorage
     loadTasks();
 
     addTaskBtn.addEventListener('click', addTask);
@@ -20,73 +13,57 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    async function loadTasks() {
-        const { data, error } = await supabase
-            .from('tasks')
-            .select('*');
-        if (error) {
-            console.error('Erro ao carregar tarefas:', error);
-            return;
-        }
-        taskList.innerHTML = '';
-        data.forEach(task => {
-            addTaskToDOM(task.id, task.nome, task.concluida);
+    function loadTasks() {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks.forEach(task => {
+            addTaskToDOM(task.id, task.name, task.completed);
         });
     }
 
-    async function addTask() {
+    function saveTasks() {
+        const tasks = [];
+        taskList.querySelectorAll('li').forEach(taskItem => {
+            tasks.push({
+                id: taskItem.dataset.id,
+                name: taskItem.textContent.replace('Remover', '').trim(),
+                completed: taskItem.classList.contains('completed')
+            });
+        });
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    function addTask() {
         const taskText = taskInput.value.trim();
         if (taskText === '') return;
 
-        const { data, error } = await supabase
-            .from('tasks')
-            .insert([{ nome: taskText, concluida: false }])
-            .single();
-        if (error) {
-            console.error('Erro ao adicionar tarefa:', error);
-            return;
-        }
+        const taskId = Date.now().toString(); // Gerar um ID único para cada tarefa
+        addTaskToDOM(taskId, taskText, false);
 
-        addTaskToDOM(data.id, data.nome, data.concluida);
+        saveTasks();
         taskInput.value = '';
         taskInput.focus();
     }
 
-    function addTaskToDOM(id, nome, concluida) {
+    function addTaskToDOM(id, name, completed) {
         const taskItem = document.createElement('li');
-        taskItem.textContent = nome;
+        taskItem.textContent = name;
         taskItem.dataset.id = id;
 
-        if (concluida) {
+        if (completed) {
             taskItem.classList.add('completed');
         }
 
         const removeBtn = document.createElement('button');
         removeBtn.textContent = 'Remover';
-        removeBtn.addEventListener('click', async () => {
-            const { error } = await supabase
-                .from('tasks')
-                .delete()
-                .eq('id', id);
-            if (error) {
-                console.error('Erro ao remover tarefa:', error);
-                return;
-            }
+        removeBtn.addEventListener('click', () => {
             taskList.removeChild(taskItem);
+            saveTasks();
         });
 
         taskItem.appendChild(removeBtn);
-        taskItem.addEventListener('click', async () => {
-            const newStatus = !taskItem.classList.contains('completed');
-            const { error } = await supabase
-                .from('tasks')
-                .update({ concluida: newStatus })
-                .eq('id', id);
-            if (error) {
-                console.error('Erro ao atualizar tarefa:', error);
-                return;
-            }
+        taskItem.addEventListener('click', () => {
             taskItem.classList.toggle('completed');
+            saveTasks();
         });
 
         taskList.appendChild(taskItem);
