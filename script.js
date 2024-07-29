@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const moveUpBtn = document.createElement('button');
         moveUpBtn.classList.add('move-button');
-        moveUpBtn.textContent = '↑';
+        moveUpBtn.innerHTML = '<img src="./img/up-arrow-svgrepo-com.svg" alt="Move Up">';
         moveUpBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             moveTask(taskItem, -1);
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const moveDownBtn = document.createElement('button');
         moveDownBtn.classList.add('move-button');
-        moveDownBtn.textContent = '↓';
+        moveDownBtn.innerHTML = '<img src="./img/down-arrow-svgrepo-com.svg" alt="Move Down">';
         moveDownBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             moveTask(taskItem, 1);

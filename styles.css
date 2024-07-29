@@ -14,7 +14,6 @@ body {
     text-align: center;
     padding: 10px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5vh;
 }
 
 .logo {
@@ -48,26 +47,6 @@ body {
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-right: 10px;
-}
-
-.add-button,
-.remove-button,
-.move-button {
-    font-family: inherit;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.add-button {
-    background: #32b4c8;
-    color: white;
-}
-
-.add-button:hover {
-    background: #218838;
 }
 
 .checkbox-container {
@@ -122,6 +101,27 @@ body {
     margin-left: 10px;
 }
 
+.add-button,
+.remove-button,
+.move-button {
+    font-family: inherit;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-button {
+    background: #32b4c8;
+    color: white;
+}
+
+.add-button:hover {
+    background: #218838;
+}
+
+
 .remove-button {
     background: #dc3545;
     color: white;
@@ -142,4 +142,9 @@ body {
 
 .move-button:hover {
     background: #29a0b1;
+}
+
+.move-button img {
+    width: 16px; /* Ajuste o tamanho conforme necessário */
+    height: 16px;
 }
