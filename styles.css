@@ -3,8 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     align-content: space-between;
-    justify-content: center;
-    justify-items: center;
+    align-items: center;
     gap: 5vh;
     margin: 0;
     background-color: #fbfbfb;
@@ -45,7 +44,6 @@ body {
 
 
 .todo-container {
-    justify-self: center;
     background: #fff;
     padding: 5%;
     border-radius: 8px;
