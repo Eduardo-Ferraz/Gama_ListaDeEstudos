@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function saveTasks() {
         const tasks = [];
-        taskList.querySelectorAll('li').forEach(taskItem => {
+        taskList.querySelectorAll('.task-item').forEach(taskItem => {
             tasks.push({
                 id: taskItem.dataset.id,
-                name: taskItem.textContent.replace('Remover', '').trim(),
+                name: taskItem.querySelector('.task-name').textContent,
                 completed: taskItem.classList.contains('completed')
             });
         });
@@ -63,20 +63,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function addTaskToDOM(id, name, completed) {
         const taskItem = document.createElement('li');
-        taskItem.textContent = name;
+        taskItem.classList.add('task-item');
         taskItem.dataset.id = id;
+
+        const taskName = document.createElement('span');
+        taskName.classList.add('task-name');
+        taskName.textContent = name;
 
         if (completed) {
             taskItem.classList.add('completed');
         }
 
         const removeBtn = document.createElement('button');
+        removeBtn.classList.add('remove-button');
         removeBtn.textContent = 'Remover';
-        removeBtn.addEventListener('click', () => {
+        removeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             taskList.removeChild(taskItem);
             saveTasks();
         });
 
+        taskItem.appendChild(taskName);
         taskItem.appendChild(removeBtn);
         taskItem.addEventListener('click', () => {
             taskItem.classList.toggle('completed');
@@ -90,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function filterTasks() {
         const showCompleted = showCompletedCheckbox.checked;
-        taskList.querySelectorAll('li').forEach(taskItem => {
+        taskList.querySelectorAll('.task-item').forEach(taskItem => {
             const isCompleted = taskItem.classList.contains('completed');
             if (isCompleted && !showCompleted) {
                 taskItem.style.display = 'none';
