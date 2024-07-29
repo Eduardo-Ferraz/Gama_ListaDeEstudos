@@ -3,7 +3,8 @@ body {
     display: flex;
     flex-direction: column;
     align-content: space-between;
-    height: 100vh;
+    justify-content: center;
+    gap: 5%;
     margin: 0;
     background-color: #fbfbfb;
 }
