@@ -175,3 +175,26 @@ body {
     width: 10px;
     height: 10px;
 }
+
+.footer {
+    position: fixed;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    color: #888;
+    background-color: #f5f5f5;
+    padding: 10px;
+}
+
+.footer a {
+    color: #888;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+}
+
+.footer a:hover {
+    color: #32b4c8;
+    text-decoration: underline;
+}
